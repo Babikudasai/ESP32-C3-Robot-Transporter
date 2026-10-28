@@ -1,11 +1,13 @@
 # 🤖 ESP32-C3 Robot Transporter Sederhana
 
-![C++](https://img.shields.io/badge/Language-C++-blue)
-![Platform](https://img.shields.io/badge/Platform-Arduino%20IDE-orange)
-![Board](https://img.shields.io/badge/Board-ESP32--C3%20Super%20Mini-green)
-![RemoteXY](https://img.shields.io/badge/GUI-RemoteXY-red)
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-C++-blue?style=for-the-badge&logo=c%2B%2B" alt="C++">
+  <img src="https://img.shields.io/badge/Platform-Arduino%20IDE-orange?style=for-the-badge&logo=arduino" alt="Platform">
+  <img src="https://img.shields.io/badge/Board-ESP32--C3%20Super%20Mini-green?style=for-the-badge&logo=espressif" alt="Board">
+  <img src="https://img.shields.io/badge/GUI-RemoteXY-red?style=for-the-badge" alt="RemoteXY">
+</p>
 
-Proyek ini adalah sistem kontrol **Robot Transporter** sederhana yang dikendalikan melalui Wi-Fi menggunakan aplikasi **RemoteXY**. Otak utama dari robot ini menggunakan **ESP32-C3 Super Mini (On-board Antenna)**, dengan sistem penggerak roda *(differential steering)* dan sebuah capit robotik yang digerakkan oleh dua buah motor servo.
+> Proyek ini adalah sistem kontrol **Robot Transporter** sederhana yang dikendalikan melalui Wi-Fi menggunakan aplikasi **RemoteXY**. Otak utama dari robot ini menggunakan **ESP32-C3 Super Mini (On-board Antenna)**, dengan sistem penggerak roda *(differential steering)* dan sebuah capit robotik yang digerakkan oleh dua buah motor servo.
 
 ---
 
@@ -13,27 +15,31 @@ Proyek ini adalah sistem kontrol **Robot Transporter** sederhana yang dikendalik
 
 **Fitra Ajax** adalah seorang *Embedded Systems Engineer*, praktisi perangkat keras, dan inovator di bidang *Internet of Things* (IoT). Dengan dedikasi tinggi pada pengembangan arsitektur mikrokontroler dan sistem robotika berbasis *open-source*, Fitra berspesialisasi dalam mengintegrasikan *hardware* berskala mikro (seperti keluarga ESP32 RISC-V) dengan antarmuka GUI nirkabel yang responsif.
 
-Keahlian utama Fitra meliputi:
-*   **Perancangan Sistem Penggerak Kinematik:** Khususnya optimalisasi logika *differential steering* untuk robot beroda.
-*   **Optimalisasi Daya Mikrokontroler:** Pemecahan masalah stabilitas kelistrikan dan *brownout reset* pada perangkat IoT *low-power*.
-*   **Pengembangan Antarmuka IoT:** Menciptakan logika interlock (*mutual exclusion*) berbasis *state machine* pada UI *mobile*.
+**Keahlian utama Fitra meliputi:**
+- ⚙️ **Perancangan Sistem Penggerak Kinematik:** Khususnya optimalisasi logika *differential steering* untuk robot beroda.
+- 🔋 **Optimalisasi Daya Mikrokontroler:** Pemecahan masalah stabilitas kelistrikan dan *brownout reset* pada perangkat IoT *low-power*.
+- 📱 **Pengembangan Antarmuka IoT:** Menciptakan logika interlock (*mutual exclusion*) berbasis *state machine* pada UI *mobile*.
 
-*“Membangun robotika yang andal tidak hanya tentang menyolder kabel, melainkan mengorkestrasi kode yang dapat mengantisipasi interaksi acak dari penggunanya.”* — **Fitra Ajax**
+> *"Membangun robotika yang andal tidak hanya tentang menyolder kabel, melainkan mengorkestrasi kode yang dapat mengantisipasi interaksi acak dari penggunanya."* — **Fitra Ajax**
 
 ---
 
 ## 🔄 Riwayat Rilis & Changelog
 
 ### **[v1.1.0] - Versi Terbaru (Latest Update)**
-* **Auto Reset on Boot:** Penambahan fungsi pengembalian *state* sistem secara otomatis. Saat modul ESP32-C3 dinyalakan ulang, Speed Level secara *default* akan mengaktifkan Level 1 (25%), mematikan opsi kecepatan lain, dan memastikan seluruh perintah servo dalam kondisi statis (OFF).
-* **Speed Mutual Exclusion (Radio Buttons):** Penambahan logika pembatas (*interlock*) antar tombol kecepatan. Ketika *user* menekan tombol Speed 1, 2, 3, atau 4, secara otomatis tombol kecepatan lainnya yang sedang aktif akan diubah menjadi `OFF` langsung dari dalam mikrokontroler, yang akan terefleksikan di layar HP. Jika user mencoba mematikan semua tombol, sistem akan memaksa Level 1 tetap hidup sebagai *fallback* keamanan.
-* **Hardware Servo Interlock:**
-  * Tombol **NAIK** dan **TURUN** saling mengunci. Mencegah bentrokan data PWM jika ditekan bersamaan.
-  * Tombol **BUKA CAPIT** dan **TUTUP CAPIT** saling mengunci.
+🔗 **Source Code:** [`src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino`](src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino) *(Klik untuk melihat file)*
+
+- **Auto Reset on Boot:** Penambahan fungsi pengembalian *state* sistem secara otomatis. Saat modul ESP32-C3 dinyalakan ulang, Speed Level secara *default* akan mengaktifkan Level 1 (25%), mematikan opsi kecepatan lain, dan memastikan seluruh perintah servo dalam kondisi statis (OFF).
+- **Speed Mutual Exclusion (Radio Buttons):** Penambahan logika pembatas (*interlock*) antar tombol kecepatan. Ketika *user* menekan tombol Speed 1, 2, 3, atau 4, secara otomatis tombol kecepatan lainnya yang sedang aktif akan diubah menjadi `OFF` langsung dari dalam mikrokontroler, yang akan terefleksikan di layar HP. Jika user mencoba mematikan semua tombol, sistem akan memaksa Level 1 tetap hidup sebagai *fallback* keamanan.
+- **Hardware Servo Interlock:**
+  - Tombol **NAIK** dan **TURUN** saling mengunci. Mencegah bentrokan data PWM jika ditekan bersamaan.
+  - Tombol **BUKA CAPIT** dan **TUTUP CAPIT** saling mengunci.
 
 ### **[v1.0.0] - Versi Awal (Legacy Release)**
-* Implementasi pergerakan roda (*Differential Steering*) menggunakan *mixing signal* dua slider XY.
-* Implementasi *timer delay non-blocking* (menggunakan `millis()`) agar pergerakan servo lengan capit tidak mengganggu respons perintah roda robot.
+🔗 **Source Code:** [`src/v1.0.0_Legacy/RobotTransporter_v1.0.0.ino`](src/v1.0.0_Legacy/RobotTransporter_v1.0.0.ino) *(Klik untuk melihat file)*
+
+- Implementasi pergerakan roda (*Differential Steering*) menggunakan *mixing signal* dua slider XY.
+- Implementasi *timer delay non-blocking* (menggunakan `millis()`) agar pergerakan servo lengan capit tidak mengganggu respons perintah roda robot.
 
 ---
 
@@ -41,7 +47,7 @@ Keahlian utama Fitra meliputi:
 1. [Fitur Utama](#-fitur-utama)
 2. [Pemilihan Hardware (ESP32-C3)](#-pemilihan-hardware-esp32-c3)
 3. [Komponen & Skema Kelistrikan](#-komponen--skema-kelistrikan)
-4. [Catatan Keamanan Daya (Penting!)](#-catatan-keamanan-daya-penting)
+4. [Catatan Keamanan Daya (Penting!)](#️-catatan-keamanan-daya-penting)
 5. [Pemetaan Pin (Pin Mapping)](#-pemetaan-pin-pin-mapping)
 6. [Antarmuka RemoteXY](#-antarmuka-remotexy)
 7. [Instalasi & Penggunaan](#-instalasi--penggunaan)
@@ -50,11 +56,11 @@ Keahlian utama Fitra meliputi:
 ---
 
 ## ✨ Fitur Utama
-*   **Differential Steering:** Kontrol laju dan arah menggunakan 2 slider (Maju/Mundur & Kiri/Kanan).
-*   **Speed Control:** 4 level kecepatan motor (25%, 50%, 75%, 100%).
-*   **Robotic Arm:** Lengan robot yang bisa bergerak naik/turun dan capit (buka/tutup).
-*   **Non-Blocking Servo Timer:** Pergerakan servo sangat halus karena diprogram menggunakan metode `millis()` alih-alih `delay()`.
-*   **Compact Power:** Hanya ditenagai oleh 1 buah Baterai Lithium 18650 (3.7V - 4.2V).
+- 🕹️ **Differential Steering:** Kontrol laju dan arah menggunakan 2 slider (Maju/Mundur & Kiri/Kanan).
+- 🚀 **Speed Control:** 4 level kecepatan motor (25%, 50%, 75%, 100%).
+- 🤖 **Robotic Arm:** Lengan robot yang bisa bergerak naik/turun dan capit (buka/tutup).
+- ⏱️ **Non-Blocking Servo Timer:** Pergerakan servo sangat halus karena diprogram menggunakan metode `millis()` alih-alih `delay()`.
+- 🔋 **Compact Power:** Hanya ditenagai oleh 1 buah Baterai Lithium 18650 (3.7V - 4.2V).
 
 ---
 
@@ -67,17 +73,17 @@ Dalam proyek ini, terdapat dua varian ESP32-C3 Super Mini di pasaran. Kita mengg
 | **Konsumsi Daya** | Sangat Hemat (~4.8 µA Sleep) | Boros (~0.6 - 1.5 mA Sleep akibat LED RGB WS2812) |
 | **Kecocokan** | Sangat cocok untuk robot mini baterai | Lebih cocok untuk router IoT statis jarak jauh |
 
-> **Catatan:** Pin ESP32-C3 sangat mendukung fungsi PWM di hampir semua GPIO-nya, sangat ideal untuk kontrol motor *Driver L298N* dan *Servo*.
+> 💡 **Catatan:** Pin ESP32-C3 sangat mendukung fungsi PWM di hampir semua GPIO-nya, sangat ideal untuk kontrol motor *Driver L298N* dan *Servo*.
 
 ---
 
 ## 📦 Komponen & Skema Kelistrikan
-*   1x ESP32-C3 Super Mini (On-board Antenna / Type-C)
-*   1x Motor Driver Mini L298N (MX1508)
-*   2x Motor DC (Kiri & Kanan)
-*   2x Motor Servo Micro (SG90 / MG90S)
-*   1x Baterai 18650 (3.7V - 4.2V) beserta holder.
-*   1x Kapasitor Elco (470µF / 1000µF) atau Modul Step-Up MT3608.
+- 1x ESP32-C3 Super Mini (On-board Antenna / Type-C)
+- 1x Motor Driver Mini L298N (MX1508)
+- 2x Motor DC (Kiri & Kanan)
+- 2x Motor Servo Micro (SG90 / MG90S)
+- 1x Baterai 18650 (3.7V - 4.2V) beserta holder.
+- 1x Kapasitor Elco (470µF / 1000µF) atau Modul Step-Up MT3608.
 
 ### ⚠️ Catatan Keamanan Daya (Penting!)
 Apakah aman menyuplai servo langsung dari Baterai 18650? **Secara tegangan, AMAN (Servo beroperasi di 4.8V-6V, baterai di 3.7V-4.2V).** 
@@ -106,8 +112,10 @@ Pin yang digunakan sudah dipilah untuk menghindari *Strapping Pins* (GPIO 2, 8, 
 ## 📱 Antarmuka RemoteXY
 Antarmuka dibangun menggunakan situs web [RemoteXY](https://remotexy.com/). Terdapat pengaturan Wi-Fi Access Point (SSID: `RemoteXY`, Password: `12345678`).
 
-![RemoteXY Interface](docs/image_2e0482.png)
-*(Desain UI meliputi 2 buah slider, 4 tombol level kecepatan, dan 4 tombol kontrol lengan/capit)*
+<p align="center">
+  <img src="docs/image_2e0482.png" alt="RemoteXY Interface" width="800">
+</p>
+<p align="center"><i>(Desain UI meliputi 2 buah slider, 4 tombol level kecepatan, dan 4 tombol kontrol lengan/capit)</i></p>
 
 ---
 
@@ -115,10 +123,10 @@ Antarmuka dibangun menggunakan situs web [RemoteXY](https://remotexy.com/). Terd
 1. Unduh dan install [Arduino IDE](https://www.arduino.cc/en/software).
 2. Tambahkan URL Board Manager untuk ESP32: `https://dl.espressif.com/dl/package_esp32_index.json` lalu install *esp32 by Espressif Systems*.
 3. Install Library yang dibutuhkan via *Library Manager*:
-   * `RemoteXY`
-   * `ESP32Servo`
+   - `RemoteXY`
+   - `ESP32Servo`
 4. Pilih Board: **ESP32C3 Dev Module**. (Pastikan *USB CDC On Boot* di-set ke **Enabled** jika menggunakan upload langsung via USB).
-5. Salin kode program di dalam folder `src/RobotTransporter/RobotTransporter.ino` ke dalam Arduino IDE.
+5. Salin kode program di dalam folder `src/` ke dalam Arduino IDE.
 6. Upload kode.
 7. Nyalakan ESP32, buka Wi-Fi HP, sambungkan ke `RemoteXY` (Pass: 12345678).
 8. Buka aplikasi RemoteXY di HP, dan robot siap dikendalikan!
@@ -126,7 +134,16 @@ Antarmuka dibangun menggunakan situs web [RemoteXY](https://remotexy.com/). Terd
 ---
 
 ## 💻 Source Code Utama
-*(Silakan lihat file lengkapnya di `src/RobotTransporter/RobotTransporter.ino`)*
+
+Anda dapat langsung mengklik tautan di bawah ini untuk mengakses direktori kode pada repositori GitHub ini:
+
+🔗 **[Lihat Kode Versi 1.1.0 (Terbaru & Direkomendasikan)](src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino)**  
+🔗 **[Lihat Kode Versi 1.0.0 (Legacy)](src/v1.0.0_Legacy/RobotTransporter_v1.0.0.ino)**
+
+<details>
+<summary><b>🔍 Tampilkan Cuplikan Kode Dasar (Klik untuk membuka)</b></summary>
+
+*(Silakan lihat file lengkapnya di masing-masing direktori tautan di atas. Berikut adalah referensi struktur utamanya:)*
 
 ```cpp
 //#define REMOTEXY__DEBUGLOG    
