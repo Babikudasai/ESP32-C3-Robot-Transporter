@@ -91,7 +91,7 @@ Namun, saat 2 Motor DC dan 2 Servo bergerak bersamaan, akan ada *current spike* 
 
 **Solusi yang diterapkan:**
 1. Menyambungkan `(+) Baterai` ke pin `5V` pada ESP32 (bukan 3.3V).
-2. **Wajib:** Pasang Kapasitor Elco (min. 470µF) secara paralel di jalur daya Servo, ATAU gunakan Modul Step-Up 5V (MT3608) ke ESP32 dan Servo agar tegangan tetap stabil.
+2. **Wajib:** Pasang Kapasitor Elco (min. 470µF – 1000µF (10V/16V) ) secara paralel di jalur daya Servo, ATAU gunakan Modul Step-Up 5V (MT3608) ke ESP32 dan Servo agar tegangan tetap stabil.
 
 ---
 
