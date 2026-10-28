@@ -9,6 +9,34 @@ Proyek ini adalah sistem kontrol **Robot Transporter** sederhana yang dikendalik
 
 ---
 
+## 👨‍💻 Tentang Author: Fitra Ajax
+
+**Fitra Ajax** adalah seorang *Embedded Systems Engineer*, praktisi perangkat keras, dan inovator di bidang *Internet of Things* (IoT). Dengan dedikasi tinggi pada pengembangan arsitektur mikrokontroler dan sistem robotika berbasis *open-source*, Fitra berspesialisasi dalam mengintegrasikan *hardware* berskala mikro (seperti keluarga ESP32 RISC-V) dengan antarmuka GUI nirkabel yang responsif.
+
+Keahlian utama Fitra meliputi:
+*   **Perancangan Sistem Penggerak Kinematik:** Khususnya optimalisasi logika *differential steering* untuk robot beroda.
+*   **Optimalisasi Daya Mikrokontroler:** Pemecahan masalah stabilitas kelistrikan dan *brownout reset* pada perangkat IoT *low-power*.
+*   **Pengembangan Antarmuka IoT:** Menciptakan logika interlock (*mutual exclusion*) berbasis *state machine* pada UI *mobile*.
+
+*“Membangun robotika yang andal tidak hanya tentang menyolder kabel, melainkan mengorkestrasi kode yang dapat mengantisipasi interaksi acak dari penggunanya.”* — **Fitra Ajax**
+
+---
+
+## 🔄 Riwayat Rilis & Changelog
+
+### **[v1.1.0] - Versi Terbaru (Latest Update)**
+* **Auto Reset on Boot:** Penambahan fungsi pengembalian *state* sistem secara otomatis. Saat modul ESP32-C3 dinyalakan ulang, Speed Level secara *default* akan mengaktifkan Level 1 (25%), mematikan opsi kecepatan lain, dan memastikan seluruh perintah servo dalam kondisi statis (OFF).
+* **Speed Mutual Exclusion (Radio Buttons):** Penambahan logika pembatas (*interlock*) antar tombol kecepatan. Ketika *user* menekan tombol Speed 1, 2, 3, atau 4, secara otomatis tombol kecepatan lainnya yang sedang aktif akan diubah menjadi `OFF` langsung dari dalam mikrokontroler, yang akan terefleksikan di layar HP. Jika user mencoba mematikan semua tombol, sistem akan memaksa Level 1 tetap hidup sebagai *fallback* keamanan.
+* **Hardware Servo Interlock:**
+  * Tombol **NAIK** dan **TURUN** saling mengunci. Mencegah bentrokan data PWM jika ditekan bersamaan.
+  * Tombol **BUKA CAPIT** dan **TUTUP CAPIT** saling mengunci.
+
+### **[v1.0.0] - Versi Awal (Legacy Release)**
+* Implementasi pergerakan roda (*Differential Steering*) menggunakan *mixing signal* dua slider XY.
+* Implementasi *timer delay non-blocking* (menggunakan `millis()`) agar pergerakan servo lengan capit tidak mengganggu respons perintah roda robot.
+
+---
+
 ## 📑 Daftar Isi
 1. [Fitur Utama](#-fitur-utama)
 2. [Pemilihan Hardware (ESP32-C3)](#-pemilihan-hardware-esp32-c3)
