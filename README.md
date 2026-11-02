@@ -26,6 +26,11 @@
 
 ## 🔄 Riwayat Rilis & Changelog
 
+### **[v1.2.0] - Versi Terbaru (Latest Update)**
+🔗 **Source Code:** [`src/v1.2.0_Latest/RobotTransporter_v1.2.0.ino`](src/v1.2.0_Latest/RobotTransporter_v1.2.0.ino) *(Klik untuk melihat file)*
+
+- **Auto-Center & Motor Deadzone:** Penambahan logika pengaman (*Deadzone*) pada area tengah *slider*. Saat *slider* dilepas dan memantul ke tengah (*center point*), motor akan 100% dipaksa mati secara otomatis (*auto-off*) sehingga mencegah roda bergerak liar atau motor berdengung.
+
 ### **[v1.1.0] - Versi Terbaru (Latest Update)**
 🔗 **Source Code:** [`src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino`](src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino) *(Klik untuk melihat file)*
 
@@ -138,6 +143,7 @@ Antarmuka dibangun menggunakan situs web [RemoteXY](https://remotexy.com/). Terd
 Anda dapat langsung mengklik tautan di bawah ini untuk mengakses direktori kode pada repositori GitHub ini:
 
 🔗 **[Lihat Kode Versi 1.1.0 (Terbaru & Direkomendasikan)](src/v1.1.0_Latest/RobotTransporter_v1.1.0.ino)**  
+🔗 **[Lihat Kode Versi 1.0.0 (Legacy)](src/v1.0.0_Legacy/RobotTransporter_v1.0.0.ino)**
 🔗 **[Lihat Kode Versi 1.0.0 (Legacy)](src/v1.0.0_Legacy/RobotTransporter_v1.0.0.ino)**
 
 <details>
