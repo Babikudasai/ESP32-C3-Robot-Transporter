@@ -3,7 +3,7 @@
 #include <RemoteXY.h>
 #include <ESP32Servo.h>
 
-#define REMOTEXY_WIFI_SSID "RemoteXY"
+#define REMOTEXY_WIFI_SSID "Transporter 2"
 #define REMOTEXY_WIFI_PASSWORD "12345678"
 #define REMOTEXY_SERVER_PORT 6377
 
