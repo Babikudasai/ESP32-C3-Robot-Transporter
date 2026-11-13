@@ -78,11 +78,11 @@ void loop() {
   // ============================================================
   if (RemoteXY.pushSwitch_01 == 1 && current_speed_level != 1) {
     RemoteXY.pushSwitch_02 = 0; RemoteXY.pushSwitch_03 = 0; RemoteXY.pushSwitch_04 = 0;
-    speed_multiplier = 0.25; current_speed_level = 1;
+    speed_multiplier = 0.45; current_speed_level = 1;
   } 
   else if (RemoteXY.pushSwitch_02 == 1 && current_speed_level != 2) {
     RemoteXY.pushSwitch_01 = 0; RemoteXY.pushSwitch_03 = 0; RemoteXY.pushSwitch_04 = 0;
-    speed_multiplier = 0.50; current_speed_level = 2;
+    speed_multiplier = 0.60; current_speed_level = 2;
   } 
   else if (RemoteXY.pushSwitch_03 == 1 && current_speed_level != 3) {
     RemoteXY.pushSwitch_01 = 0; RemoteXY.pushSwitch_02 = 0; RemoteXY.pushSwitch_04 = 0;
@@ -90,7 +90,7 @@ void loop() {
   } 
   else if (RemoteXY.pushSwitch_04 == 1 && current_speed_level != 4) {
     RemoteXY.pushSwitch_01 = 0; RemoteXY.pushSwitch_02 = 0; RemoteXY.pushSwitch_03 = 0;
-    speed_multiplier = 1.00; current_speed_level = 4;
+    speed_multiplier = 90; current_speed_level = 4;
   }
 
   // Fallback pengaman Level 1
