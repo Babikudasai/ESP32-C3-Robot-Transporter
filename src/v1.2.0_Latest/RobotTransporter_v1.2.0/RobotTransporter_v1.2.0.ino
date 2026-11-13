@@ -3,7 +3,7 @@
 #include <RemoteXY.h>
 #include <ESP32Servo.h>
 
-#define REMOTEXY_WIFI_SSID "RemoteXY"
+#define REMOTEXY_WIFI_SSID "TRANSPORTER 2"
 #define REMOTEXY_WIFI_PASSWORD "12345678"
 #define REMOTEXY_SERVER_PORT 6377
 
@@ -110,8 +110,8 @@ void loop() {
   // ============================================================
   // LOGIKA 3: DIFFERENTIAL STEERING MOTOR + DEADZONE (AUTO-OFF)
   // ============================================================
-  int throttle = RemoteXY.slider_01;
-  int steering = RemoteXY.slider_02;
+  int throttle = RemoteXY.slider_02;
+  int steering = RemoteXY.slider_01;
 
   // Terapkan Deadzone: Paksa 0 jika slider di sekitar center point
   if (throttle > -DEADZONE && throttle < DEADZONE) throttle = 0;
